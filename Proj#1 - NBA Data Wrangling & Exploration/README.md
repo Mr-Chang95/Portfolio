@@ -1,6 +1,8 @@
 # NBA Teams Offensive Data Exploration (1980-2021)
 ## by Daniel Chang
 
+![Nba](https://user-images.githubusercontent.com/92649864/158081373-686d5f15-09af-407b-be18-cf9ec831f505.png)
+
 ## Summary of Project
 For this project, I am mainly interested in conducting data exploration and analysis on the offensive stats and characteristics of different NBA teams based on Finals ranking which is a new column I will create that contains 4 values: Champion, Runner-Up, Knocked Out and Never Qualified. Knocked Out and Never Qualified implies that they have either been knocked out of or never qualified for the NBA playoffs. Some stats that you will see me analyze and visualize are Margin of Victory(MOV), 3P%, Age and shot attempts.
 
@@ -36,4 +38,4 @@ After cleaning up the data, I merged 4 of the datasets into 2. I have also creat
 `cleaned_avg_stats.csv` - Cleaned dataset that contains the average stats from 1980-2021 scraped from the Basketball Reference website. This dataset all needed variables such as Finals rankings(Finals_Rk), Age and Wins.
 
 ## Licensing, Authors, Acknowledgements
-I would like to give special thanks to **[Basketball Reference](https://www.basketball-reference.com/leagues/)** for the data that I have collected. This couldn't have hapened without them. 
+I would like to give special thanks to **[Basketball Reference](https://www.basketball-reference.com/leagues/)** for the data that I have collected. This couldn't have hapened without them.
