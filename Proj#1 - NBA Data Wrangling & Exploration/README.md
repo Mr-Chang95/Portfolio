@@ -38,4 +38,4 @@ After cleaning up the data, I merged 4 of the datasets into 2. I have also creat
 `cleaned_avg_stats.csv` - Cleaned dataset that contains the average stats from 1980-2021 scraped from the Basketball Reference website. This dataset all needed variables such as Finals rankings(Finals_Rk), Age and Wins.
 
 ## Licensing, Authors, Acknowledgements
-I would like to give special thanks to **[Basketball Reference](https://www.basketball-reference.com/leagues/)** for the data that I have collected. This couldn't have hapened without them.
+I would like to give special thanks to **[Basketball Reference](https://www.basketball-reference.com/leagues/)** for the data that I have collected. This couldn't have happened without them.
