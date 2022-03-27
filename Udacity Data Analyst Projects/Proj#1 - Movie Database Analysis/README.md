@@ -32,6 +32,17 @@ The movie dataset was provided by Udacity and is also publicly available in kagg
 21. revenue_adj
 
 ```
+### Goal/Questions
+This project will use films in the TMDb database to answer the following questions.
 
+- How has the output of movies changed over the years?
+- Average Runtime Of Movies From Year To Year?
+- Average Vote Of Movies From Year To Year?
+- Over the years, how has the output for films of different lengths (short, average, and long) changed?
+- What is the relationship between the films' length and vote average over time?
+- Total Number Of Movies Released For Each Genre?
+- Average Profit By Year?
+- What Is The Relationship Between Release Year And Profit?
+- 
 ### Packages Used
 In this project, I will be using data obtained from kaggle to answer questions about the Database. I used numpy, pandas, matplotlib, along with the data file 'tmdb-movies.csv'.
