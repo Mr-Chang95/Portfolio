@@ -21,7 +21,7 @@ In this project, I gathered data from the archives of a Twitter account called [
 - requests
 - tweepy
 - json
-~~~~~
+~~~~~~
 
 ## Licensing, Authors, Acknowledgements
 Special thanks to WeRateDogs for allowing me to work with their data. I would also like to thank Udacity for giving me this oppurtunity. 
