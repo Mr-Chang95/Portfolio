@@ -45,4 +45,8 @@ This project will use films in the TMDb database to answer the following questio
 - What Is The Relationship Between Release Year And Profit?
 - 
 ### Packages Used
-In this project, I will be using data obtained from kaggle to answer questions about the Database. I used numpy, pandas, matplotlib, along with the data file 'tmdb-movies.csv'.
+- numpy 
+- pandas 
+- matplotlib
+### Licensing, Authors, Acknowledgements
+I would like to give special thanks to Udacity  for giving me the opportunity to do this project and practice my data skills. 
