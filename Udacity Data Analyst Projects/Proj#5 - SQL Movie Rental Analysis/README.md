@@ -21,10 +21,10 @@ While you can use PostgresSQL to query your the movie rental database, there man
 The database used in this project can be found on the PostgresSQL website using the [this link](https://www.postgresqltutorial.com/load-postgresql-sample-database/).
 
 ## Files
-`movie_insights.sql` : This SQL file is where all the querying happen to gain an understanding and insights from the database, answer the questions asked, and prepare the resulting tables for visualization.
-`movie slide and visuals.pdf` : A pdf file with visual slides answering the questions asked.
-`dvdrental.tar` : This is the database file where there are 14 tables related to the rental dvds and business.
-`dvd-rental-erd.pdf` : A pdf that contains the Entity Relationship Diagram(ERD) of the dvd rental database.
+`movie_insights.sql` : This SQL file is where all the querying happen to gain an understanding and insights from the database, answer the questions asked, and prepare the resulting tables for visualization. <br>
+`movie slide and visuals.pdf` : A pdf file with visual slides answering the questions asked. <br>
+`dvdrental.tar` : This is the database file where there are 14 tables related to the rental dvds and business. <br>
+`dvd-rental-erd.pdf` : A pdf that contains the Entity Relationship Diagram(ERD) of the dvd rental database. <br>
 
 ## Licensing, Authors, Acknowledgements
 I would like to thank Udacity and PostgresSQL for providing me with the oppurtunity to work on my SQL skills and for the data.
