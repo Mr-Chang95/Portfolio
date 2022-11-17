@@ -32,6 +32,27 @@ This project contains a total of 2 notebooks. The skills that I have chosen to f
 ### Proj#4 - Beer Project with R
 This was done as a project for Data Science 6306 at Southern Methodist University.We want to analyze 2 datasets(totalbeer.csv and totalbreweries.csv) to gain actionable insights to present to the CEO and CFO of Budweiser. Budweiser has hired us to answer some questions. We will perform Exploratory Data Analysis to answer the questions that they are interested in, all of which are listed down below. Afterward, we want to use the KNN classifier to see if we can predict what group a beer belongs to based on its IBU and/or ABV.  
 
+### Proj#5 - Airbnb Modeling
+In this Udacity Project, I'll be analyzing, modeling, and visualizing the datasets from Airbnb to provide a clear connection between my business questions and how the data answers them. I am interested in using the 2016-17 Seattle and Boston Airbnb datasets to answer the following questions: <br>
+    - What are the important amenities of these listings? Compare the two cities. <br>
+    - Is it possible to predict the price with 8 features? If yes, compare the 2 cities. <br>
+    - How does the price in each city change each month? Be sure to compare the 2 cities. <br>
+    - How does the total number of listings change each month? Be sure to compare the 2 cities.
+    <br>
+
+Medium Article Link: https://medium.com/@mr.dcny/a-study-of-airbnb-listings-seattle-boston-ff3a69646edf
+
+### Proj#6 - IBM Recommendation System
+In this Udacity Project, I'll be analyzing the interactions that users have with articles on the IBM Watson Studio platform, and making recommendations to them about new articles that they might be interested in.
+The project contains the following tasks:
+    - Exploratory Data Analysis: This part is for data exploration.
+
+    - Rank Based Recommendations: Here, I begin by finding the most popular articles based on the most interactions. These  articles are the ones that we might recommend to new users.
+
+    - User-User Based Collaborative Filtering: In order to give better recommendations to the users of IBM's platform, I examine users that are similar in terms of the items they have interacted with. These items could then be recommended to similar users.
+
+    - Matrix Factorization: For the final step, I created a machine learning approach to building recommendations. Using the user-item interactions, I built out a matrix decomposition which helps me in predicting new articles an individual might interact with .
+
 ### Udacity Data Analyst Projects
 This folder consists of multiple sub-folders of projects that I’ve completed with Udacity’s Data Analyst program. There are a total of 4 folders where the primary focus is to practice the Exploratory Data Analysis(EDA) process which includes gathering and wrangling data then analyzing and visualizing them. Here is a list of the projects and a short explanation to complement them:
 - **Movie Database Analysis:** In this project, the skills that I’ve demonstrated are: assessing and cleaning data, analyzing data and visualizing data. The goal of this project is to answer the questions that I asked at the beginning.
