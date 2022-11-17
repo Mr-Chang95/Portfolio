@@ -4,7 +4,7 @@
 ## Introduction
 Hello!
 
-Welcome to my Data Analyst Portfolio. My name is Daniel Chang and I am excited to have you here!
+Welcome to my Portfolio. My name is Daniel Chang and I am excited to have you here!
 
 In this repository, you will come across several folders and sub-folders that contain projects that demonstrate the following, but not limited to the following skills: data gathering with APIs, data wrangling, data exploration, statistical analysis, data visualization, presentation skills, etc. A majority of my projects are done using the Python programming language in Jupyter Notebook. Some of the most used packages are Pandas, Numpy, Seaborn and Matplotlib.
 
@@ -28,6 +28,9 @@ The skills that I’ve focused on in this project are data gathering via Youtube
 In this project, I am interested in working to understand the crime rate in London, England. My goal is to work through this notebook to understand violent crime rates and when they are likely to occur throughout the year. This dataset contains all crimes (non-violent and violent) committed between 2008 and 2016. However, the nature of the crime-violent or non-violent- is not specified in this dataset, so we will need to deal with that during the preprocessing phase. We will also need to specify which months are the ones when daylight saving is in effect.
 
 This project contains a total of 2 notebooks. The skills that I have chosen to focus on are hypothesis testing and statistics, as well as regression data modeling.
+
+### Proj#4 - Beer Project with R
+This was done as a project for Data Science 6306 at Southern Methodist University.We want to analyze 2 datasets(totalbeer.csv and totalbreweries.csv) to gain actionable insights to present to the CEO and CFO of Budweiser. Budweiser has hired us to answer some questions. We will perform Exploratory Data Analysis to answer the questions that they are interested in, all of which are listed down below. Afterward, we want to use the KNN classifier to see if we can predict what group a beer belongs to based on its IBU and/or ABV.  
 
 ### Udacity Data Analyst Projects
 This folder consists of multiple sub-folders of projects that I’ve completed with Udacity’s Data Analyst program. There are a total of 4 folders where the primary focus is to practice the Exploratory Data Analysis(EDA) process which includes gathering and wrangling data then analyzing and visualizing them. Here is a list of the projects and a short explanation to complement them:
