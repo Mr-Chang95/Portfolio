@@ -51,7 +51,10 @@ The project contains the following tasks:
 
     - User-User Based Collaborative Filtering: In order to give better recommendations to the users of IBM's platform, I examine users that are similar in terms of the items they have interacted with. These items could then be recommended to similar users.
 
-    - Matrix Factorization: For the final step, I created a machine learning approach to building recommendations. Using the user-item interactions, I built out a matrix decomposition which helps me in predicting new articles an individual might interact with .
+    - Matrix Factorization: For the final step, I created a machine learning approach to building recommendations. Using the user-item interactions, I built out a matrix decomposition which helps me in predicting new articles an individual might interact with.
+
+### Proj#7 - Disaster Response Pipeline
+In this udacity project, I will create a machine learning/NLP pipeline to categorize these events and build a model to classify messages that are sent during disasters. There are 36 pre-defined categories, and examples of these categories include Aid Related, Medical Help, Search And Rescue, etc. By classifying these messages, we can allow these messages to be sent to the appropriate disaster relief agency. This project also includes a web app.
 
 ### Udacity Data Analyst Projects
 This folder consists of multiple sub-folders of projects that I’ve completed with Udacity’s Data Analyst program. There are a total of 4 folders where the primary focus is to practice the Exploratory Data Analysis(EDA) process which includes gathering and wrangling data then analyzing and visualizing them. Here is a list of the projects and a short explanation to complement them:
