@@ -1,0 +1,22 @@
+---
+title: "Codebook"
+author: "Daniel Chang"
+date: "2022-10-23"
+output: html_document
+---
+
+```{r , echo=FALSE, include=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+library("codebook")
+beers_path = "https://raw.githubusercontent.com/Mr-Chang95/MSDS_6306_Doing-Data-Science/Master/Unit%208%20and%209%20Case%20Study%201/Beers.csv"
+breweries_path = "https://raw.githubusercontent.com/Mr-Chang95/MSDS_6306_Doing-Data-Science/Master/Unit%208%20and%209%20Case%20Study%201/Breweries.csv"
+totalBeer = read.csv(beers_path, header = TRUE)
+totalBrew = read.csv(breweries_path, header = TRUE)
+```
+
+```{r }
+codebook(totalBeer)
+```
+
+```{r }
+codebook(totalBrew)
+```

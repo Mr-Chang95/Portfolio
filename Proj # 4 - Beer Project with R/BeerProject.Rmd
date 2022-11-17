@@ -1,0 +1,170 @@
+---
+title: "Beer Project"
+author: "Daniel Chang"
+date: "2022-10-19"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load libraries and datasets
+
+Loading libraries and datasets for project use
+
+```{r load-packages, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(tidyverse)
+library(knitr)
+library(rmarkdown)
+library(caret)
+library(class)
+
+beers_path = "https://raw.githubusercontent.com/Mr-Chang95/MSDS_6306_Doing-Data-Science/Master/Unit%208%20and%209%20Case%20Study%201/Beers.csv"
+breweries_path = "https://raw.githubusercontent.com/Mr-Chang95/MSDS_6306_Doing-Data-Science/Master/Unit%208%20and%209%20Case%20Study%201/Breweries.csv"
+totalBeer = read.csv(beers_path, header = TRUE)
+totalBrew = read.csv(breweries_path, header = TRUE)
+```
+
+## Exploratory Data Analysis(EDA)
+
+In the Exploratory Data Analysis section, we will be cleaning and exploring the dataset to address any questions that we may have.
+
+### 1.	How many breweries are present in each state?
+From the bar plot above, we find that Colorado has the most number of breweries in its state with California being the second. 
+
+The code below counts the number of breweries in each state and arrange them in descending order. After that, we create a bar chart that plots our findings. 
+
+```{r}
+totalBrew %>% group_by(State) %>% count(State) %>% arrange(desc(n))
+ggplot(totalBrew, aes(x = State), fill = State) + geom_bar() + 
+  labs(title ="Amount of Breweries per State", x = "States", y = "Amount of Breweries") + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+
+### 2.	Merge beer data with the breweries data. Print the first 6 observations 
+There are total of 2410 rows and 10 columns after merging the two datasets.
+
+The code below merges our 2 dataset together and prints out the first and last 6 rows. 
+```{r}
+mergedB = merge(totalBeer, totalBrew, by.x = "Brewery_id", by.y = "Brew_ID")
+dim(mergedB)
+
+#Looking at the first 6 observations and returning them
+head(mergedB, n=6)
+
+#This will give us the last 6th  observations and returning them
+tail(mergedB, n = 6)
+```
+
+
+### 3. Address the missing values in each column.
+After omitting all of the null values in the merged dataset, we are left with 1405 rows/observations.
+
+The code below omits all null values from all columns. 
+```{r}
+mergedB = na.omit(mergedB)
+dim(mergedB)
+```
+
+### 4.	Compute the median alcohol content (ABV) and international bitterness unit for each state. Plot a bar chart to compare.
+The code below creates a new dataframe that summarizes the median ABV and IBU by state. Ater that, we plot our findings on seperate bar charts. 
+```{r}
+medFrame = mergedB %>% group_by(State) %>% summarise(medianABV = median(ABV), medianIBU = median(IBU))
+
+#plotting by using a bar charts
+ggplot(medFrame, aes(x = State, y = medianABV)) + geom_bar(stat = 'identity') + ggtitle("Median ABV per State") + ylab("Median ABV") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplot(medFrame, aes(x = State, y = medianIBU), color = "yellow") + geom_bar(stat = 'identity') + ggtitle("Median IBU per State") + ylab("Median IBU") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+### 5. Which state has the maximum alcoholic (ABV) beer? Which state has the most bitter (IBU) beer?
+The state with the highest median IBU and ABV beer is Maine. When it comes to the highest overall IBU beer, that belongs to Oregon. The highest overall ABV beer belongs to Kentucky.  
+
+The code below finds state(s) that has the highest median IBU and ABV, as well as the highest overall.  
+```{r}
+#arranges columns in descending order to show max #s first
+# Gets highest median ABV and IBU
+head(arrange(medFrame, desc(medianIBU)), n = 1)
+head(arrange(medFrame, desc(medianABV)), n = 1)
+
+# Gets highest overall ABV and IBU
+head(arrange(mergedB, desc(IBU)), n = 1)
+head(arrange(mergedB, desc(ABV)), n =1)
+```
+
+### 6.Comment on the summary statistics and distribution of the ABV variable
+Looking at the histogram distribution, we find that it is right-skewed. Next, we find that the min ABV is 0.027, 1st quartile in 0.05, median is 0.057, mean is 0.05991, 3rd quartile is 0.068 and max is 0.125.
+
+The code below creates a histogram to plot the distribution of ABV for all the beers and get a summary statistics on the ABV column. 
+```{r}
+ggplot(mergedB, aes(x = ABV)) + geom_histogram()
+summary(mergedB$ABV)
+```
+
+### 7. Is there an apparent relationship between the bitterness of the beer and its alcoholic content? 
+The relationship appears to be linear and positive but not a strong linear relationship.
+
+The code below plots a scatterplot for us to study the relationship between the bitterness of the beer(IBU) and its alcoholic content(ABV).
+```{r}
+ggplot(mergedB, aes(x = ABV, y = IBU)) + geom_point() + geom_jitter() + geom_smooth(se = FALSE)
+```
+### 8. Budweiser would also like to investigate the difference with respect to IBU and ABV between IPAs (India Pale Ales) and other types of Ale (any beer with “Ale” in its name other than IPA).  You decide to use KNN classification to investigate this relationship.  Provide statistical evidence one way or the other.
+We want to create a confusion matrix that will produce these statistics, as well as, create a predictor that can predict whether a beer is Ale or IPA based on IBU and ABV. The best way to go about this is to create a column called group that speciify whether the beer is "Ale" or "IPA", rather than its full Style name. 
+
+From our confusion matrix, we find that Accuracy = 0.8644, Sensitivity = 0.8571, and Specificity = 0.8750.
+
+The code below creates a new column that seperate the beer into 2 categories, "Ale" or "IPA" and creates a test and train dataset for us so we can use KNN classifier on. Also, we created a predictor that can predict whether a beer with a specific ABV and IBU will end up as an "Ale" or "IPA".
+```{r}
+#using grepl to find rows with IPA and Ale within Style
+mergedBall= mergedB %>% filter(grepl("IPA|Ale", Style))
+mergedBall
+
+# create new column called group to seperate Ale and IPA without specific name
+for (i in 1:length(mergedBall$Style)){
+  if (grepl("IPA", mergedBall$Style[i])){
+    mergedBall$group[i]= "IPA"
+  } else{
+    mergedBall$group[i] = "Ale"
+  }
+}
+
+#creating the training and testing for IBU and ABV 
+trainIndices = sample(1:dim(mergedBall)[1], round(0.75* dim(mergedBall)[1]))
+train = mergedBall[trainIndices,]
+test = mergedBall[-trainIndices,]
+
+mergedBall %>% ggplot(aes(x = IBU, y = ABV, color = group)) + geom_point()
+
+#k = 3
+classifications = knn(train[,c(4,5)], test[,c(4,5)], train$group, prob = TRUE, k =3)
+table(classifications, test$group)
+cm = confusionMatrix(table(classifications, test$group))
+cm
+
+#predicting if an IPA or Ale from guess
+df_test = data.frame(ABV = 0.3 , IBU = 30 )
+
+classifications = knn(train[,c(4,5)], df_test, train$group, prob = TRUE, k =3)
+classifications
+```
+
+### 9. Find states for target market, based on ABV, for each specific group. 
+In our bar chart, we can see that New Jersey has the highest mean ABV for Ale at 0.099 while Nevada has the highest for IPA at 0.093.  
+
+The code below summarizes the median ABV of each state of each group for us for us. Afterward it plots the mean ABV of each state in descending order.
+```{r}
+#If you want to make an Ale here are the states you should market to
+df = mergedBall %>% filter(group == "Ale") %>% group_by(State)%>% summarise(meanABV = mean(ABV)) %>% arrange(desc(meanABV))
+ggplot(df, aes(x = reorder(State, -meanABV), y = meanABV)) + geom_bar(stat = "identity")+ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+#If you want to make an IPA here are the states you should market to 
+df = mergedBall %>% filter(group == "IPA") %>% group_by(State)%>% summarise(meanABV = mean(ABV)) %>% arrange(desc(meanABV))
+ggplot(df, aes(x = reorder(State, -meanABV), y = meanABV)) + geom_bar(stat = "identity")+ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
