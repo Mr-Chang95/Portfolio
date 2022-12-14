@@ -3,7 +3,7 @@
 ## Motivation
 For this project, I am interested in using the 2016-17 Seattle and Boston Airbnb datasets to answer the following questions: <br>
     - What are the important amenities of these listings? Compare the two cities. <br>
-    - Is it possible to predict the price with 8 features? If yes, compare the 2 cities. <br>
+    - Is it possible to predict the price with 5 features? If yes, compare the 2 cities. <br>
     - How does the price in each city change each month? Be sure to compare the 2 cities. <br>
     - How does the total number of listings change each month? Be sure to compare the 2 cities. <br>
 
